@@ -5,7 +5,9 @@ version = "0.1.0"
 
 [deps]
 Artifacts = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 JunctionTrees = "b732b382-80b5-46a8-aa9c-7d077ae04823"
+PkgBenchmark = "32113eaa-f34f-5b0d-bd6c-c81e245fc73d"
 
 [compat]
 julia = "1.7.0"
