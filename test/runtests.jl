@@ -1,6 +1,13 @@
-using JunctionTreesBenchmarks
 using Test
 
-@testset "JunctionTreesBenchmarks.jl" begin
-    # Write your tests here.
+for file in filter(f -> endswith(f, ".jl"), readdir(@__DIR__))
+
+  if file in ["runtests.jl",]
+    continue
+  end
+
+  @testset "$(file)" begin
+    include(file)
+  end
+
 end

@@ -3,6 +3,10 @@ uuid = "b96aa7eb-521a-4b52-aa44-77d719efb0ad"
 authors = ["Martin Roa Villescas"]
 version = "0.1.0"
 
+[deps]
+Artifacts = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
+JunctionTrees = "b732b382-80b5-46a8-aa9c-7d077ae04823"
+
 [compat]
 julia = "0.1"
 
