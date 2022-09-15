@@ -8,7 +8,7 @@ benchmarks = [
               # "Alchemy",
               "CSP",
               "DBN",
-              "Grids",
+              # "Grids",
               # "linkage",
               "ObjectDetection",
               "Pedigree",
