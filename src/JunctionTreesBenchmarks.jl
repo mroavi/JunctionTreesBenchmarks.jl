@@ -14,6 +14,12 @@ function benchmark_dirname()
   joinpath(gethostname(), Dates.format(now(),"yyyy-mm-dd--HH-MM-SS"))
 end
 
+"""
+    benchmark()
+
+Start a benchmark of JunctionTrees.jl and store the results. The results are
+stored in: JunctionTreesBenchmarks/results/<hostname>/<date-time>/
+"""
 function benchmark()
 
   # Configure the benchmark (note that the `config` is passed as an arg to `benchmarkpkg`)
