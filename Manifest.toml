@@ -2,7 +2,7 @@
 
 julia_version = "1.8.1"
 manifest_format = "2.0"
-project_hash = "0adcb18cdaa5573afc76e112f2c441370dd8019d"
+project_hash = "009bbd7493d908f57330eab1225c97eaa7535cc3"
 
 [[deps.AbstractFFTs]]
 deps = ["ChainRulesCore", "LinearAlgebra"]
@@ -196,7 +196,7 @@ version = "0.21.3"
 
 [[deps.JunctionTrees]]
 deps = ["AbstractTrees", "Artifacts", "Combinatorics", "DataStructures", "DocStringExtensions", "Graphs", "MLStyle", "MacroTools", "MetaGraphs", "OMEinsum"]
-path = "/home/mroavi/.julia/dev/JunctionTrees"
+path = "/home/20180043/.julia/dev/JunctionTrees"
 uuid = "b732b382-80b5-46a8-aa9c-7d077ae04823"
 version = "0.3.2"
 
