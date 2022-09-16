@@ -6,15 +6,15 @@ using JunctionTrees: read_uai_file, read_uai_evid_file, read_uai_mar_file
 
 benchmarks = [
               # "Alchemy",
-              "CSP",
-              "DBN",
+              # "CSP",
+              # "DBN",
               # "Grids",
               # "linkage",
-              "ObjectDetection",
-              "Pedigree",
+              # "ObjectDetection",
+              # "Pedigree",
               "Promedus",
               # "relational",
-              "Segmentation",
+              # "Segmentation",
              ]
 
 for benchmark in benchmarks

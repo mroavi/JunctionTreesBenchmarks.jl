@@ -1,8 +1,8 @@
 module JunctionTreesBenchmarks
 
-using PkgBenchmark, Dates
+using PkgBenchmark, Dates, TestReports
 
-export benchmark
+export benchmark, test
 
 """
     benchmark_dirname()
@@ -24,29 +24,51 @@ function benchmark()
 
   # Configure the benchmark (note that the `config` is passed as an arg to `benchmarkpkg`)
   config = BenchmarkConfig(
-                           id = "master", # git id (`nothing` means the current state of the pkg)
-                           juliacmd = `julia -O3`,
+                           id = nothing, # git id (`nothing` means the current state of the pkg)
+                           juliacmd = `julia`,
                            env = Dict("JULIA_NUM_THREADS" => 1)
                           )
 
   # Run the benchmark suite
   results = benchmarkpkg(
-                         "/home/20180043/.julia/dev/JunctionTrees",
+                         "JunctionTreesBenchmarks",
                          config;
                          script="benchmark/benchmarks.jl",
+                         retune=true,
                         )
 
-  # Generate a directory name based on the current date and time and save in the results dir
+  # Create a directory for the current benchmark based on the current date and time
   root_module_path = pathof(JunctionTreesBenchmarks) |> dirname |> dirname
-  results_path = joinpath(root_module_path, "results")
-  benchmark_path = joinpath(results_path, benchmark_dirname())
-  mkpath(benchmark_path)
+  benchmark_results_path = joinpath(root_module_path, "benchmark", "benchmark_results")
+  current_benchmark_path = joinpath(benchmark_results_path, benchmark_dirname())
+  mkpath(current_benchmark_path)
 
   # Write results
-  writeresults(joinpath(benchmark_path, "results.txt"), results)
+  writeresults(joinpath(current_benchmark_path, "results.txt"), results)
 
   # Export to Markdown
-  export_markdown(joinpath(benchmark_path, "summary.md"), results)
+  export_markdown(joinpath(current_benchmark_path, "summary.md"), results)
+
+end
+
+"""
+    test()
+
+Test JunctionTreesBenchmarks.jl (this package) and generate JUnit XMLs reports
+"""
+function test()
+
+  # Create a directory for the current test report based on the current date and time
+  root_module_path = pathof(JunctionTreesBenchmarks) |> dirname |> dirname
+  test_reports_path = joinpath(root_module_path, "test", "test_reports")
+  current_test_report_path = joinpath(test_reports_path, benchmark_dirname())
+  mkpath(current_test_report_path)
+
+  TestReports.test(
+                   "JunctionTreesBenchmarks",
+                   logfilepath=current_test_report_path,
+                   logfilename="testlog.xml",
+                  )
 
 end
 
