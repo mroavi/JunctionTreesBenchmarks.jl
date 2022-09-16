@@ -33,7 +33,7 @@ function benchmark()
   results = benchmarkpkg(
                          "/home/20180043/.julia/dev/JunctionTrees",
                          config;
-                         script="benchmark/benchmark.jl",
+                         script="benchmark/benchmarks.jl",
                         )
 
   # Generate a directory name based on the current date and time and save in the results dir
