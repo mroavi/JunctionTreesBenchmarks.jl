@@ -18,7 +18,8 @@ end
     benchmark()
 
 Start a benchmark of JunctionTrees.jl and store the results. The results are
-stored in: JunctionTreesBenchmarks/results/<hostname>/<date-time>/
+stored in
+`JunctionTreesBenchmarks/benchmark/benchmark_results/<hostname>/<date-time>/`
 """
 function benchmark()
 
