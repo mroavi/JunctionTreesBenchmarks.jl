@@ -11,7 +11,6 @@ PkgBenchmark = "32113eaa-f34f-5b0d-bd6c-c81e245fc73d"
 TestReports = "dcd651b4-b50a-5b6b-8f22-87e9f253a252"
 
 [compat]
-JunctionTrees = "0.3"
 PkgBenchmark = "0.2"
 TestReports = "0.7"
 julia = "1.7.0"
