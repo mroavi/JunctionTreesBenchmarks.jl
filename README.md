@@ -38,9 +38,9 @@ using JunctionTreesBenchmarks
 test()
 ```
 
-The tests consist of the standard Julia package tests for
-JunctionTreesBenchmarks.jl stored inside the `test` directory. Each test report
-is stored in a newly created directory inside
+The tests that are run are the standard Julia package tests for
+`JunctionTreesBenchmarks.jl` stored inside the `test` directory. Each test
+report is stored in a newly created directory inside
 `JunctionTreesBenchmarks/test/test_reports/`. The name of this new directory is
 based on the host name, and current date and time, for example,
 `JunctionTreesBenchmarks/test/test_reports/<hostname>/<date-time>/`.
