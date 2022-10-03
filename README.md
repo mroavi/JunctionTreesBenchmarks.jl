@@ -8,9 +8,10 @@ A package for generating benchmark and test reports for
 
 # Benchmarks
 
-The benchmark suite is defined in
-`JunctionTreesBenchmarks/benchmark/benchmarks.jl`. It consists of the of the
-[UAI 2014 problem
+The benchmark suite, defined in
+`JunctionTreesBenchmarks/benchmark/benchmarks.jl`, is run using
+[PkgBenchmark.jl](https://github.com/JuliaCI/PkgBenchmark.jl). The benchmark
+consists of the of the [UAI 2014 problem
 instances](https://personal.utdallas.edu/~vxg112130/uai14-competition/index.html).
 To start a benchmark instance, activate the JunctionTreesBenchmarks.jl project
 and run:
