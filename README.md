@@ -22,8 +22,7 @@ benchmark()
 
 The results of each benchmark instance is stored in a newly created directory
 inside `JunctionTreesBenchmarks/benchmark/benchmark_results/`. The name of this
-new directory is based on the host name, and current date and time, for example,
-`JunctionTreesBenchmarks/benchmark/benchmark_results/<hostname>/<date-time>/`.
+new directory is based on the host name, and current date and time.
 
 # Test reports
 
@@ -40,5 +39,4 @@ The tests that are run are the standard Julia package tests for
 `JunctionTreesBenchmarks.jl` stored inside the `test` directory. Each test
 report is stored in a newly created directory inside
 `JunctionTreesBenchmarks/test/test_reports/`. The name of this new directory is
-based on the host name, and current date and time, for example,
-`JunctionTreesBenchmarks/test/test_reports/<hostname>/<date-time>/`.
+based on the host name, and current date and time.
