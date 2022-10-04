@@ -4,7 +4,6 @@ A package for generating benchmark and test reports for
 [JunctionTrees.jl](https://github.com/mroavi/JunctionTrees.jl).
 
 [![Build Status](https://github.com/mroavi/JunctionTreesBenchmarks.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/mroavi/JunctionTreesBenchmarks.jl/actions/workflows/CI.yml?query=branch%3Amain)
-[![Coverage](https://codecov.io/gh/mroavi/JunctionTreesBenchmarks.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/mroavi/JunctionTreesBenchmarks.jl)
 
 # Benchmarks
 
