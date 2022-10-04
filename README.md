@@ -11,8 +11,7 @@ A package for generating benchmark and test reports for
 We use [PkgBenchmark.jl](https://github.com/JuliaCI/PkgBenchmark.jl) to run the
 benchmark suite defined in `JunctionTreesBenchmarks/benchmark/benchmarks.jl`.
 This benchmark uses the networks presented in the [UAI 2014 Inference
-Competition]
-](https://personal.utdallas.edu/~vxg112130/uai14-competition/index.html) .
+Competition](https://personal.utdallas.edu/~vxg112130/uai14-competition/index.html) .
 
 To start a benchmark instance, activate the `JunctionTreesBenchmarks.jl` project
 and run:
