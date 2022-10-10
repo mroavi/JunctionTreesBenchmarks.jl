@@ -5,16 +5,16 @@ using JunctionTrees
 using JunctionTrees: read_uai_file, read_uai_evid_file, read_uai_mar_file
 
 benchmarks = [
-              # "Alchemy",
-              # "CSP",
-              # "DBN",
-              # "Grids",
-              # "linkage",
-              # "ObjectDetection",
-              # "Pedigree",
-              "Promedus",
-              # "relational",
-              # "Segmentation",
+              # "Alchemy",          # fails: NaN values in the result
+              "CSP",              # passes
+              "DBN",              # passes
+              # "Grids",            # fails partially: NaN values in the result
+              # "linkage",          # Internal error: stack overflow in type inference of run_algo
+              # "ObjectDetection",  # fails: no error reported
+              "Pedigree",         # passes
+              "Promedus",         # passes
+              # "relational",       # fails: OutOfMemoryError()
+              "Segmentation",     # passes
              ]
 
 for benchmark in benchmarks
