@@ -11,7 +11,7 @@ Return a date-time string to be used as directory name for a benchmark
 Format based on: https://serverfault.com/a/370766
 """
 function benchmark_dirname()
-  joinpath(gethostname(), Dates.format(now(),"yyyy-mm-dd--HH-MM-SS"))
+  joinpath(gethostname(), Dates.format(now(), "yyyy-mm-dd--HH-MM-SS"))
 end
 
 """
@@ -25,18 +25,18 @@ function benchmark()
 
   # Configure the benchmark (note that the `config` is passed as an arg to `benchmarkpkg`)
   config = BenchmarkConfig(
-                           id = nothing, # git id (`nothing` means the current state of the pkg)
-                           juliacmd = `julia`,
-                           env = Dict("JULIA_NUM_THREADS" => 1)
-                          )
+    id=nothing, # git id (`nothing` means the current state of the pkg)
+    juliacmd=`julia`,
+    env=Dict("JULIA_NUM_THREADS" => 1)
+  )
 
   # Run the benchmark suite
   results = benchmarkpkg(
-                         "JunctionTreesBenchmarks",
-                         config;
-                         script="benchmark/benchmarks.jl",
-                         retune=true,
-                        )
+    "JunctionTreesBenchmarks",
+    config;
+    script="benchmark/benchmarks.jl",
+    retune=true
+  )
 
   # Create a directory for the current benchmark based on the current date and time
   root_module_path = pathof(JunctionTreesBenchmarks) |> dirname |> dirname
@@ -66,10 +66,10 @@ function test()
   mkpath(current_test_report_path)
 
   TestReports.test(
-                   "JunctionTreesBenchmarks",
-                   logfilepath=current_test_report_path,
-                   logfilename="testlog.xml",
-                  )
+    "JunctionTreesBenchmarks",
+    logfilepath=current_test_report_path,
+    logfilename="testlog.xml",
+  )
 
 end
 
