@@ -5,28 +5,28 @@ using JunctionTrees
 using JunctionTrees: read_uai_file, read_uai_evid_file, read_uai_mar_file
 
 benchmarks = [
-              # "Alchemy",          # fails: NaN values in the result
-              "CSP",              # passes
-              "DBN",              # passes
-              # "Grids",            # fails partially: NaN values in the result
-              # "linkage",          # Internal error: stack overflow in type inference of run_algo
-              # "ObjectDetection",  # fails: no error reported
-              "Pedigree",         # passes
-              "Promedus",         # passes
-              # "relational",       # fails: OutOfMemoryError()
-              "Segmentation",     # passes
-             ]
+  # "Alchemy",          # fails: NaN values in the result
+  "CSP",              # passes
+  "DBN",              # passes
+  # "Grids",            # fails partially: NaN values in the result
+  # "linkage",          # Internal error: stack overflow in type inference of run_algo
+  # "ObjectDetection",  # fails: no error reported
+  "Pedigree",         # passes
+  "Promedus",         # passes
+  # "relational",       # fails: OutOfMemoryError()
+  "Segmentation",     # passes
+]
 
 for benchmark in benchmarks
 
   @testset "$(benchmark) benchmark" begin
 
     # Capture the problem names that belongs to the current benchmark
-    rexp = Regex("($(benchmark)_\\d*)(\\.uai)\$") 
-    problems = readdir(artifact"uai2014"; sort=false) |> 
-      x -> map(y -> match(rexp, y), x) |> # apply regex
-      x -> filter(!isnothing, x) |> # filter out `nothing` values
-      x -> map(first, x) # get the first capture of each element
+    rexp = Regex("($(benchmark)_\\d*)(\\.uai)\$")
+    problems = readdir(artifact"uai2014"; sort=false) |>
+               x -> map(y -> match(rexp, y), x) |> # apply regex
+                    x -> filter(!isnothing, x) |> # filter out `nothing` values
+                         x -> map(first, x) # get the first capture of each element
 
     for problem in problems
 
@@ -46,10 +46,10 @@ for benchmark in benchmarks
         # ------------------------------------------------------------------------------
 
         algo = compile_algo(
-                            uai_filepath;
-                            uai_evid_filepath = uai_evid_filepath, 
-                            td_filepath = td_filepath,
-                          )
+          uai_filepath;
+          uai_evid_filepath=uai_evid_filepath,
+          td_filepath=td_filepath
+        )
 
         eval(algo)
         marginals = run_algo(obsvars, obsvals) |> x -> map(y -> y.vals, x)

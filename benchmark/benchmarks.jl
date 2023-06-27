@@ -14,28 +14,28 @@ SUITE["uai2014"] = BenchmarkGroup()
 
 
 benchmarks = [
-              # "Alchemy",
-              "CSP",
-              "DBN",
-              # "Grids",
-              # "linkage",
-              # "ObjectDetection",
-              # "Pedigree",
-              # "Promedus",
-              # "relational",
-              "Segmentation",
-             ]
+  # "Alchemy",
+  "CSP",
+  "DBN",
+  # "Grids",
+  # "linkage",
+  # "ObjectDetection",
+  # "Pedigree",
+  # "Promedus",
+  # "relational",
+  "Segmentation",
+]
 
 for benchmark in benchmarks
 
   SUITE["uai2014"][benchmark] = BenchmarkGroup()
 
   # Capture the problem names that belongs to the current benchmark
-  rexp = Regex("($(benchmark)_\\d*)(\\.uai)\$") 
-  problems = readdir(artifact"uai2014"; sort=false) |> 
-    x -> map(y -> match(rexp, y), x) |> # apply regex
-    x -> filter(!isnothing, x) |> # filter out `nothing` values
-    x -> map(first, x) # get the first capture of each element
+  rexp = Regex("($(benchmark)_\\d*)(\\.uai)\$")
+  problems = readdir(artifact"uai2014"; sort=false) |>
+             x -> map(y -> match(rexp, y), x) |> # apply regex
+                  x -> filter(!isnothing, x) |> # filter out `nothing` values
+                       x -> map(first, x) # get the first capture of each element
 
   for problem in problems
 
@@ -59,16 +59,16 @@ for benchmark in benchmarks
     for use_omeinsum in [false, true]
 
       algo = compile_algo(
-                          uai_filepath;
-                          uai_evid_filepath = uai_evid_filepath, 
-                          td_filepath = td_filepath,
-                          use_omeinsum = use_omeinsum,
-                         )
+        uai_filepath;
+        uai_evid_filepath=uai_evid_filepath,
+        td_filepath=td_filepath,
+        use_omeinsum=use_omeinsum
+      )
 
       eval(algo)
 
       SUITE["uai2014"][benchmark][problem]["omeinsum"][string(use_omeinsum)] =
-      @benchmarkable run_algo($obsvars, $obsvals)
+        @benchmarkable run_algo($obsvars, $obsvals)
 
     end
 
